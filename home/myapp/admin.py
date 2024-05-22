@@ -6,5 +6,6 @@ from .models import *
 admin.site.register(SliderItem)
 admin.site.register(Post)
 admin.site.register(Contact)
-admin.site.register(About_Blog)
-admin.site.register(Title_about)
+admin.site.register(AboutBlog)
+admin.site.register(TitleAbout)
+admin.site.register(personal_info)

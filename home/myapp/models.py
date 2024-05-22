@@ -33,17 +33,47 @@ class Contact(models.Model):
         return self.subject
 
 # About us models
-class Title_about(models.Model):
-    title=models.CharField(max_length=200)
+class TitleAbout(models.Model):
+    title=models.CharField(max_length=200, unique=True)
     def __str__(self):
         return self.title
-    
 
 
-class About_Blog(models.Model):
-    blog_title=models.ForeignKey(Title_about,on_delete=models.CASCADE)
+class AboutBlog(models.Model):
+    blog_title=models.ForeignKey(TitleAbout,on_delete=models.CASCADE)
     desc=models.TextField()
 
     def __str__(self):
         return f"{self.blog_title}"
+
+
+
+class Teammembername(models.Model):
+    name=models.CharField(max_length=200, unique=True)
+    def __str__(self):
+        return self.name
+
+
+class OurTeamName(models.Model):
+    member=models.ForeignKey(Teammembername,on_delete=models.CASCADE)
+    designation=models.CharField(max_length=200)
+    desc=models.TextField()
+
+    def __str__(self):
+        return f"{self.designation}"
+    
+
+# Contact us models
+class personal_info(models.Model):
+
+    name=models.CharField(max_length=150)
+    address=models.CharField(max_length=200)
+    roles=models.CharField(max_length=150)
+    desc = models.TextField()
+    phone_number = models.IntegerField()
+    email = models.EmailField()
+
+    def __str__(self):
+        return f"{self.name} + {self.address} + {self.roles}"
+    
     
