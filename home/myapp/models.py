@@ -1,9 +1,8 @@
 from django.db import models
 
-
-
-
 # Create your models here.
+
+#Index
 class SliderItem(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -22,7 +21,7 @@ class Post(models.Model):
     def __str__(self):
         return self.caption
 
-
+#Contact
 class Contact(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField()
@@ -47,15 +46,14 @@ class AboutBlog(models.Model):
         return f"{self.blog_title}"
 
 
-
-class Teammembername(models.Model):
+class TeamMemberName(models.Model):
     name=models.CharField(max_length=200, unique=True)
     def __str__(self):
         return self.name
 
 
 class OurTeamName(models.Model):
-    member=models.ForeignKey(Teammembername,on_delete=models.CASCADE)
+    member=models.ForeignKey(TeamMemberName,on_delete=models.CASCADE)
     designation=models.CharField(max_length=200)
     desc=models.TextField()
 

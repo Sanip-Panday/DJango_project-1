@@ -6,9 +6,12 @@ from .models import Post
 from django.conf import settings
 from .models import *
 
-
 def home(request):
-    return render(request,'index.html')
+    hero = SliderItem.objects.all()
+    context={
+        'hero':hero
+    }
+    return render(request,'index.html',context )
 
 def single_post(request):
     posts = Post.objects.all()
@@ -22,8 +25,10 @@ def categories(request):
 
 def about(request):
     about = AboutBlog.objects.all()
+    teams = OurTeamName.objects.all()
     context = {
-        'blog':about
+        'blog':about,
+        'teams':teams
     }
 
     return render(request, 'about.html',context)

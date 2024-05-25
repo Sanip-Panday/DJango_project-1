@@ -68,6 +68,7 @@
     </section> {% endcomment %}
 
     <section>
+      {% comment %} {{teams}} {% endcomment %}
       <div class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-12 text-center mb-5">
@@ -78,13 +79,15 @@
               </div>
             </div>
           </div>
+          {% for team in teams %}
           <div class="col-lg-4 text-center mb-5">
             <img src="assets/img/person-1.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
-            <h4>Cameron Williamson</h4>
-            <span class="d-block mb-3 text-uppercase">Founder &amp; CEO</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
+            <h4>{{team.member}}</h4>
+            <span class="d-block mb-3 text-uppercase">{{team.designation}}</span>
+            <p>{{team.desc}}</p>
           </div>
-          <div class="col-lg-4 text-center mb-5">
+          {% endfor %}
+          {% comment %} <div class="col-lg-4 text-center mb-5">
             <img src="assets/img/person-2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
             <h4>Wade Warren</h4>
             <span class="d-block mb-3 text-uppercase">Founder, VP</span>
@@ -113,7 +116,7 @@
             <h4>Cameron Williamson</h4>
             <span class="d-block mb-3 text-uppercase">Editor Staff</span>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
-          </div>
+          </div> {% endcomment %}
         </div>
       </div>
     </section>
