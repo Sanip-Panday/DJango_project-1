@@ -40,8 +40,8 @@ def about(request):
     return render(request, 'about.html',context)
 
 def contact(request):
-    info = personal_info.objects.get(id=3)  #Fetch all data from databasae fetch means data is coming from databasae to dispay in templates.
-    infos = personal_info.objects.filter(name="parsuram")
+    info = personal_info.objects.all() #Fetch all data from databasae fetch means data is coming from databasae to dispay in templates.
+    # infos = personal_info.objects.filter(name="parsuram")
     # This is for form
     if request.method == "POST":
         print(request.POST)
