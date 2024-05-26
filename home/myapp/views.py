@@ -6,10 +6,16 @@ from .models import Post
 from django.conf import settings
 from .models import *
 
+from datetime import datetime
+
 def home(request):
     hero = SliderItem.objects.all()
+    post_grid = Post.objects.all()
+    current_data = datetime.now()
     context={
-        'hero':hero
+        'hero':hero,
+        'current_data':current_data,
+        'post_grid':post_grid,
     }
     return render(request,'index.html',context )
 
