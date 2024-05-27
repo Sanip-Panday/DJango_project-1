@@ -36,15 +36,23 @@ INSTALLED_APPS = [
     'myapp',
     'user',
     'jazzmin',
+    'Login',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+   
 ]
 
-AUTH_USER_MODEL = 'user.CustomUser'
+# # settings.py
+
+AUTH_USER_MODEL = 'user.RandomUser'
+
+
+#logout garesi login_page ma pughos
+LOGOUT_REDIRECT_URL = 'login_page'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,7 +91,7 @@ WSGI_APPLICATION = 'home.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'para',
+        'NAME': 'Zenvlog',
         'USER': 'root',
         'PASSWORD': 'fjdk',
         'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
