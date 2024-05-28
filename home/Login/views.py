@@ -4,13 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-from django.http import HttpResponse
 
 User=get_user_model()
-# Create your views here.
-def home(request):
-    return render(request, 'login.html')
-
 
 def login_page(request):
     if request.method == 'POST':
@@ -30,7 +25,7 @@ def login_page(request):
         if user1 is not None:
             # Log in the user and redirect to home page upon successful login
             login(request, user1)
-            return redirect('/home')
+            return redirect('home')
         else:
             # Display an error message if authentication fails
             messages.error(request, "Invalid username or password")
@@ -43,7 +38,7 @@ def login_page(request):
 def logout_view(request):
     logout(request)
     # Redirect to the login page or any other desired page
-    return redirect('login')
+    return redirect('login_page')
 
 
 def register_page(request):
@@ -73,7 +68,7 @@ def register_page(request):
 
             #Display an information message indicating successful account creations
             messages.info(request, "Account created Successfully!")
-            return redirect('/login/')
+            return redirect('login_page')
 
     return render(request, 'register.html')
 

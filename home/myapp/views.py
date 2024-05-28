@@ -1,13 +1,11 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
-from .models import SliderItem
 from .models import Post
-
 from django.conf import settings
 from .models import *
-
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 
+# @login_required(login_url='login')
 def home(request):
     hero = SliderItem.objects.all()
     post_grid = Post.objects.all()
@@ -65,3 +63,6 @@ def contact(request):
             print("You message have been submitetd successfully!!")
     return render(request, 'contact.html', {'info':info})
 
+
+def profile(request):
+    return render(request, 'profile.html')

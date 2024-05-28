@@ -39,11 +39,12 @@ class TitleAbout(models.Model):
 
 
 class AboutBlog(models.Model):
-    blog_title=models.ForeignKey(TitleAbout,on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='assets/img/', null=True )
+    name=models.ForeignKey(TitleAbout,on_delete=models.CASCADE)
     desc=models.TextField()
 
     def __str__(self):
-        return f"{self.blog_title}"
+        return f"{self.name}"
 
 
 class TeamMemberName(models.Model):

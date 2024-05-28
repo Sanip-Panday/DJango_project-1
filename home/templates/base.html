@@ -33,7 +33,7 @@
 <body>
        
    <!-- ======= Header ======= -->
-   <header id="header" class="header d-flex align-items-center fixed-top">
+  <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="{% url 'home' %}" class="logo d-flex align-items-center">
@@ -44,7 +44,7 @@
 
       {% include 'includes/navbar.html' %}
 
-      <div class="position-relative">
+      <div class="position-relative d-flex align-items-center">
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
         <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
@@ -60,16 +60,19 @@
             <button class="btn js-search-close"><span class="bi-x"></span></button>
           </form>
         </div><!-- End Search Form -->
-        <button type="button" class="btn btn-dark">Logout</button>
-
+        <div class="navbar-brand mx-2">
+          <a href="{% url 'profile' %}"><img src="{% static 'assets/img/person-7.jpg' %}" class="rounded-circle" style="width:50px"></img></a>
+        </div>
+        {% comment %} <button class="btn btn-success" ><a href="{% url 'logout' %}" class="btn btn-success">Logout</a></button> {% endcomment %}
       </div>
-
+      
     </div>
-
   </header><!-- End Header -->
 
+  
+
   {% block body %}
-   
+  
   {% endblock body %}
 
   {% include 'includes/footer.html' %}
