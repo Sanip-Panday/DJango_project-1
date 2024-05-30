@@ -150,5 +150,15 @@
       </div>
     </div>
   </section>
+<!-- Profile section ends here -->
+
+<div class = "card" style="width:400px">
+  <div class = "card-body">
+    <form action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="POST">
+     
+      <button value="Payme" type="submit" class="btn btn-secondary"><a href="{% url 'payment' %}"></a></button>
+      </form>
+  </div>
+</div>
 
 {% endblock body %}
